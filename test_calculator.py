@@ -39,5 +39,8 @@ class TestCalcFunction(unittest.TestCase):
     def test_trailing_delimeter(self):
         self.assertRaises(ValueError, add, "1,2,")
 
+    def test_negative_numbers(self):
+        self.assertRaises(ValueError, add, "1,-4,2,-2")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
