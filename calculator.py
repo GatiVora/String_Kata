@@ -4,7 +4,13 @@ def add(numbers):
     if not numbers:
         return 0
 
-    delimiter = ','
+    if numbers.startswith("//"):
+        delimiter, numbers = parse_delimiter(numbers[2:])
+        if not delimiter:
+            raise ValueError("Invalid delimiter definition")
+    else:
+        delimiter = ','
+
     numbers = re.split(rf'[{delimiter}\n]', numbers)
     total = 0
     negatives = []
@@ -25,3 +31,8 @@ def add(numbers):
         raise ValueError(f"negative numbers not allowed {','.join(map(str, negatives))}")
 
     return total
+
+
+def parse_delimiter(numbers):
+    delimiter, numbers = numbers.split('\n', 1)
+    return delimiter, numbers

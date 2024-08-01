@@ -21,5 +21,8 @@ class TestCalcFunction(unittest.TestCase):
     def test_many_numbers(self):
         self.assertEqual(add("1,2,3\n4,5,6\n7,8,9,10"), 55)
 
+    def test_custom_delimiter(self):
+        self.assertEqual(add("//;\n1;2"), 3)
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
