@@ -41,6 +41,9 @@ class TestCalcFunction(unittest.TestCase):
 
     def test_negative_numbers(self):
         self.assertRaises(ValueError, add, "1,-4,2,-2")
+    
+    def test_non_integers(self):
+        self.assertRaises(ValueError, add, "a,b,c")
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
