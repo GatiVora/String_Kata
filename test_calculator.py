@@ -27,5 +27,17 @@ class TestCalcFunction(unittest.TestCase):
     def test_multiple_delimiter(self):
         self.assertRaises(ValueError, add, "//;\n1,2;3")
 
+    def test_multiple_newline(self):
+        self.assertRaises(ValueError, add, "//\n\n1;2")
+
+    def test_multiple_delimiter_in_row(self):
+        self.assertRaises(ValueError, add, "1,2,,3")
+
+    def test_multiple_newline(self):
+        self.assertRaises(ValueError, add, "//\n\n1;2")
+
+    def test_trailing_delimeter(self):
+        self.assertRaises(ValueError, add, "1,2,")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
