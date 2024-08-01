@@ -24,5 +24,8 @@ class TestCalcFunction(unittest.TestCase):
     def test_custom_delimiter(self):
         self.assertEqual(add("//;\n1;2"), 3)
 
+    def test_multiple_delimiter(self):
+        self.assertRaises(ValueError, add, "//;\n1,2;3")
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
